@@ -7,6 +7,7 @@ import (
 
 	"github.com/go-logr/logr"
 	"github.com/go-logr/zapr"
+	"github.com/onsi/ginkgo/v2"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 )
@@ -197,6 +198,18 @@ func ProvideZaprNoOpLogger(version VersionString) (logr.Logger, error) {
 	zapLog := zap.NewNop()
 
 	return zapr.NewLogger(zapLog), nil
+}
+
+// ProvideGinkgoZaprLogger provides a logger
+func ProvideGinkgoZaprLogger() (logr.Logger, error) {
+	var log logr.Logger
+	conf := zap.NewDevelopmentConfig()
+	enc := zapcore.NewConsoleEncoder(conf.EncoderConfig)
+	core := zapcore.NewCore(enc, zapcore.AddSync(ginkgo.GinkgoWriter), zap.DebugLevel)
+	zapLog := zap.New(core, zap.AddCaller(), zap.AddStacktrace(zap.DPanicLevel))
+	log = zapr.NewLogger(zapLog)
+
+	return log, nil
 }
 
 // ProvideZaprLogger provides a logger
