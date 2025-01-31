@@ -5,6 +5,14 @@ This CHANGELOG is a format conforming to [keep-a-changelog](https://github.com/o
 It is generated with git-chglog -o CHANGELOG.md
 
 
+<a name="v0.1.1"></a>
+## [v0.1.1](https://github/CestusIO/log/compare/v0.1.0...v0.1.1)
+
+### Bug Fixes
+
+* move back wire
+
+
 <a name="v0.1.0"></a>
 ## [v0.1.0](https://github/CestusIO/log/compare/v0.0.2...v0.1.0)
 
