@@ -5,7 +5,7 @@
 
 package log
 
-import "code.cestus.io/tools/wire"
+import "github.com/google/wire"
 
 // ZapperLogProviderSet provides a zap logger
 var ZapperLogProviderSet = wire.NewSet(
