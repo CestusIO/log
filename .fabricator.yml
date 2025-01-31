@@ -1,9 +1,13 @@
 apiVersion: fabricator.cestus.io/v1alpha1
 kind: Config
 components:
-  - name: "log"
+  - name: log
+    generator: fabricator-generate-go
+    spec:
+      packageName: log
+  - name: log
     generator: fabricator-generate-project-go
     spec:
       goModule: code.cestus.io/libs/log
-      repoURL: https://gitlab.com/cestus/libs/log
+      repoURL: https://github/CestusIO/log
       isLib: true
